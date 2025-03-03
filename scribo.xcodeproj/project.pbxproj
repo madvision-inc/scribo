@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		80C6D3BA2D762F320063D2A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 80C6D3A02D762F300063D2A6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 80C6D3A72D762F300063D2A6;
+			remoteInfo = scribo;
+		};
+		80C6D3C42D762F320063D2A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 80C6D3A02D762F300063D2A6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 80C6D3A72D762F300063D2A6;
+			remoteInfo = scribo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		80C6D3A82D762F300063D2A6 /* scribo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = scribo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		80C6D3B92D762F320063D2A6 /* scriboTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = scriboTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		80C6D3C32D762F320063D2A6 /* scriboUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = scriboUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		80C6D3AA2D762F300063D2A6 /* scribo */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = scribo;
+			sourceTree = "<group>";
+		};
+		80C6D3BC2D762F320063D2A6 /* scriboTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = scriboTests;
+			sourceTree = "<group>";
+		};
+		80C6D3C62D762F320063D2A6 /* scriboUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = scriboUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		80C6D3A52D762F300063D2A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80C6D3B62D762F320063D2A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80C6D3C02D762F320063D2A6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		80C6D39F2D762F300063D2A6 = {
+			isa = PBXGroup;
+			children = (
+				80C6D3AA2D762F300063D2A6 /* scribo */,
+				80C6D3BC2D762F320063D2A6 /* scriboTests */,
+				80C6D3C62D762F320063D2A6 /* scriboUITests */,
+				80C6D3A92D762F300063D2A6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		80C6D3A92D762F300063D2A6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				80C6D3A82D762F300063D2A6 /* scribo.app */,
+				80C6D3B92D762F320063D2A6 /* scriboTests.xctest */,
+				80C6D3C32D762F320063D2A6 /* scriboUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		80C6D3A72D762F300063D2A6 /* scribo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80C6D3CD2D762F320063D2A6 /* Build configuration list for PBXNativeTarget "scribo" */;
+			buildPhases = (
+				80C6D3A42D762F300063D2A6 /* Sources */,
+				80C6D3A52D762F300063D2A6 /* Frameworks */,
+				80C6D3A62D762F300063D2A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				80C6D3AA2D762F300063D2A6 /* scribo */,
+			);
+			name = scribo;
+			packageProductDependencies = (
+			);
+			productName = scribo;
+			productReference = 80C6D3A82D762F300063D2A6 /* scribo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		80C6D3B82D762F320063D2A6 /* scriboTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80C6D3D02D762F320063D2A6 /* Build configuration list for PBXNativeTarget "scriboTests" */;
+			buildPhases = (
+				80C6D3B52D762F320063D2A6 /* Sources */,
+				80C6D3B62D762F320063D2A6 /* Frameworks */,
+				80C6D3B72D762F320063D2A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				80C6D3BB2D762F320063D2A6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				80C6D3BC2D762F320063D2A6 /* scriboTests */,
+			);
+			name = scriboTests;
+			packageProductDependencies = (
+			);
+			productName = scriboTests;
+			productReference = 80C6D3B92D762F320063D2A6 /* scriboTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		80C6D3C22D762F320063D2A6 /* scriboUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80C6D3D32D762F320063D2A6 /* Build configuration list for PBXNativeTarget "scriboUITests" */;
+			buildPhases = (
+				80C6D3BF2D762F320063D2A6 /* Sources */,
+				80C6D3C02D762F320063D2A6 /* Frameworks */,
+				80C6D3C12D762F320063D2A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				80C6D3C52D762F320063D2A6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				80C6D3C62D762F320063D2A6 /* scriboUITests */,
+			);
+			name = scriboUITests;
+			packageProductDependencies = (
+			);
+			productName = scriboUITests;
+			productReference = 80C6D3C32D762F320063D2A6 /* scriboUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		80C6D3A02D762F300063D2A6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					80C6D3A72D762F300063D2A6 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					80C6D3B82D762F320063D2A6 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 80C6D3A72D762F300063D2A6;
+					};
+					80C6D3C22D762F320063D2A6 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 80C6D3A72D762F300063D2A6;
+					};
+				};
+			};
+			buildConfigurationList = 80C6D3A32D762F300063D2A6 /* Build configuration list for PBXProject "scribo" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 80C6D39F2D762F300063D2A6;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 80C6D3A92D762F300063D2A6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				80C6D3A72D762F300063D2A6 /* scribo */,
+				80C6D3B82D762F320063D2A6 /* scriboTests */,
+				80C6D3C22D762F320063D2A6 /* scriboUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		80C6D3A62D762F300063D2A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80C6D3B72D762F320063D2A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80C6D3C12D762F320063D2A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		80C6D3A42D762F300063D2A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80C6D3B52D762F320063D2A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80C6D3BF2D762F320063D2A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		80C6D3BB2D762F320063D2A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 80C6D3A72D762F300063D2A6 /* scribo */;
+			targetProxy = 80C6D3BA2D762F320063D2A6 /* PBXContainerItemProxy */;
+		};
+		80C6D3C52D762F320063D2A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 80C6D3A72D762F300063D2A6 /* scribo */;
+			targetProxy = 80C6D3C42D762F320063D2A6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		80C6D3CB2D762F320063D2A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		80C6D3CC2D762F320063D2A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		80C6D3CE2D762F320063D2A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = scribo/scribo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"scribo/Preview Content\"";
+				DEVELOPMENT_TEAM = BT5M35HWN8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bm.scribo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		80C6D3CF2D762F320063D2A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = scribo/scribo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"scribo/Preview Content\"";
+				DEVELOPMENT_TEAM = BT5M35HWN8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bm.scribo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		80C6D3D12D762F320063D2A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BT5M35HWN8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bm.scriboTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/scribo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/scribo";
+			};
+			name = Debug;
+		};
+		80C6D3D22D762F320063D2A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BT5M35HWN8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bm.scriboTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/scribo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/scribo";
+			};
+			name = Release;
+		};
+		80C6D3D42D762F320063D2A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BT5M35HWN8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bm.scriboUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = scribo;
+			};
+			name = Debug;
+		};
+		80C6D3D52D762F320063D2A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BT5M35HWN8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bm.scriboUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = scribo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		80C6D3A32D762F300063D2A6 /* Build configuration list for PBXProject "scribo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80C6D3CB2D762F320063D2A6 /* Debug */,
+				80C6D3CC2D762F320063D2A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		80C6D3CD2D762F320063D2A6 /* Build configuration list for PBXNativeTarget "scribo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80C6D3CE2D762F320063D2A6 /* Debug */,
+				80C6D3CF2D762F320063D2A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		80C6D3D02D762F320063D2A6 /* Build configuration list for PBXNativeTarget "scriboTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80C6D3D12D762F320063D2A6 /* Debug */,
+				80C6D3D22D762F320063D2A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		80C6D3D32D762F320063D2A6 /* Build configuration list for PBXNativeTarget "scriboUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80C6D3D42D762F320063D2A6 /* Debug */,
+				80C6D3D52D762F320063D2A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 80C6D3A02D762F300063D2A6 /* Project object */;
+}
