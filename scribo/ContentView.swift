@@ -34,25 +34,25 @@ struct ContentView: View {
             // Escape dialog
             if showEscapeDialog {
                 VStack {
-                    Text("Enter passwords to exit Scribo")
+                    Text("enter tri-passwords to exit Scribo")
                         .font(.headline)
                         .padding()
                     
-                    Text("Password \(authManager.passwordIndex + 1) of 3")
+                    Text("password \(authManager.passwordIndex + 1) of 3")
                         .padding(.bottom)
                     
-                    SecureField("Enter password", text: $authManager.passwords[authManager.passwordIndex])
+                    SecureField("enter password", text: $authManager.passwords[authManager.passwordIndex])
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.horizontal)
                         .frame(width: 300)
                     
                     HStack {
-                        Button("Cancel") {
+                        Button("cancel") {
                             showEscapeDialog = false
                         }
                         .padding()
                         
-                        Button("Submit") {
+                        Button("submit") {
                             if authManager.checkPassword() {
                                 if authManager.isAuthenticated {
                                     showEscapeDialog = false
@@ -94,15 +94,15 @@ struct NewDocumentView: View {
     
     var body: some View {
         VStack(spacing: 30) {
-            Text("Scribo")
+            Text("scribo")
                 .font(.system(size: 48, weight: .light))
                 .foregroundColor(.black)
             
-            Text("Distraction-free writing")
+            Text("distraction-free writing")
                 .font(.system(size: 20, weight: .light))
                 .foregroundColor(.gray)
             
-            TextField("Document title (optional)", text: $documentTitle)
+            TextField("document title (optional)", text: $documentTitle)
                 .font(.system(size: 18))
                 .textFieldStyle(PlainTextFieldStyle())
                 .frame(width: 400)
@@ -110,7 +110,7 @@ struct NewDocumentView: View {
                 .background(Color(white: 0.98))
                 .cornerRadius(8)
             
-            Button("Start Writing") {
+            Button("start writing") {
                 startWriting = true
             }
             .font(.system(size: 18, weight: .medium))
@@ -277,11 +277,11 @@ struct DocumentListView: View {
             
             VStack(spacing: 40) {
                 // App title
-                Text("Scribo")
+                Text("scribo")
                     .font(.system(size: 64, weight: .light))
                     .foregroundColor(.black)
                 
-                Text("Distraction-free writing")
+                Text("distraction-free writing")
                     .font(.system(size: 24, weight: .light))
                     .foregroundColor(.gray)
                 
@@ -293,7 +293,7 @@ struct DocumentListView: View {
                         VStack {
                             Image(systemName: "plus.square")
                                 .font(.system(size: 32))
-                            Text("New Document")
+                            Text("new document")
                                 .font(.headline)
                         }
                         .frame(width: 180, height: 120)
@@ -304,13 +304,13 @@ struct DocumentListView: View {
                     
                     // Recent documents section
                     VStack(alignment: .leading, spacing: 20) {
-                        Text("Recent Documents")
+                        Text("recent documents")
                             .font(.headline)
                         
                         ScrollView {
                             VStack(alignment: .leading, spacing: 4) {
                                 if documentManager.documents.isEmpty {
-                                    Text("No documents yet")
+                                    Text("no documents yet")
                                         .foregroundColor(.gray)
                                         .italic()
                                 } else {
@@ -351,21 +351,21 @@ struct DocumentListView: View {
                         .edgesIgnoringSafeArea(.all)
                     
                     VStack(spacing: 20) {
-                        Text("Create New Document")
+                        Text("create New Document")
                             .font(.headline)
                         
-                        TextField("Document Title", text: $newDocumentTitle)
+                        TextField("document title", text: $newDocumentTitle)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .frame(width: 300)
                         
                         HStack(spacing: 20) {
-                            Button("Cancel") {
+                            Button("cancel") {
                                 showNewDocumentDialog = false
                                 newDocumentTitle = ""
                             }
                             .padding(.horizontal)
                             
-                            Button("Create") {
+                            Button("create") {
                                 guard !newDocumentTitle.isEmpty else { return }
                                 let newDocument = documentManager.createDocument(title: newDocumentTitle)
                                 showNewDocumentDialog = false
