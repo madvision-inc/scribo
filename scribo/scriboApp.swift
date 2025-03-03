@@ -8,32 +8,6 @@
 import SwiftUI
 import Network
 
-// Main application
-@main
-struct scriboApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-                .frame(minWidth: 800, minHeight: 600)
-                .background(Color.white)
-                .onAppear {
-                    NSApplication.shared.windows.first?.toggleFullScreen(nil)
-                }
-                .preferredColorScheme(.light)
-        }
-        .windowStyle(HiddenTitleBarWindowStyle())
-        .commands {
-            // Remove standard menu items
-            CommandGroup(replacing: .newItem) {}
-            CommandGroup(replacing: .undoRedo) {}
-            CommandGroup(replacing: .pasteboard) {}
-            CommandGroup(replacing: .textEditing) {}
-            CommandGroup(replacing: .windowList) {}
-            CommandGroup(replacing: .help) {}
-        }
-    }
-}
-
 // Network manager to handle WiFi disconnection
 class NetworkManager: ObservableObject {
     @Published var isWifiDisabled = false
@@ -86,3 +60,30 @@ class AuthenticationManager: ObservableObject {
         isAuthenticated = false
     }
 }
+
+// Main application
+@main
+struct scriboApp: App {
+    @StateObject private var documentManager = DocumentManager()
+    
+    var body: some Scene {
+        WindowGroup {
+            MainView()
+                .environmentObject(documentManager)
+                .frame(minWidth: 800, minHeight: 600)
+                .background(Color.white)
+                .preferredColorScheme(.light)
+        }
+        .windowStyle(HiddenTitleBarWindowStyle())
+        .commands {
+            // Remove standard menu items
+            CommandGroup(replacing: .newItem) {}
+            CommandGroup(replacing: .undoRedo) {}
+            CommandGroup(replacing: .pasteboard) {}
+            CommandGroup(replacing: .textEditing) {}
+            CommandGroup(replacing: .windowList) {}
+            CommandGroup(replacing: .help) {}
+        }
+    }
+}
+
