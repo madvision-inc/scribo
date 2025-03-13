@@ -24,6 +24,9 @@ struct EditorView: View {
     init(document: ScriboDocument, onExit: @escaping (ScriboDocument) -> Void) {
         _document = State(initialValue: document)
         self.onExit = onExit
+        
+        // Load the saved dark mode preference
+        _isDarkMode = State(initialValue: UserDefaults.standard.bool(forKey: "ScriboDarkModeEnabled"))
     }
     
     var body: some View {
@@ -90,31 +93,22 @@ struct EditorView: View {
                 .padding()
                 .background(isDarkMode ? Color.black : Color.white)
                 
-                // Main text editor with smaller font
-                TextEditor(text: $document.content)
-                    .font(.system(size: 14))
-                    .padding(10) // Removed padding
-                    .background(Color(isDarkMode ? .black : .white))
-                    .foregroundColor(isDarkMode ? .white : .black)
-                    .colorScheme(isDarkMode ? .dark : .light)
-                    .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
-                        // This helps ensure standard keyboard shortcuts like Cmd+A work properly
-                        NSApp.windows.first?.makeFirstResponder(nil)
+                // Using our custom text editor instead of SwiftUI's TextEditor
+                CustomTextEditor(text: $document.content, isDarkMode: isDarkMode, onTextChange: { _ in
+                    // Start typing state
+                    isTyping = true
+                    
+                    // Reset the timer when user types
+                    typingTimer?.invalidate()
+                    
+                    // Create a new timer that will trigger after 2 seconds of inactivity
+                    typingTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
+                        // User stopped typing
+                        isTyping = false
+                        saveDocument()
                     }
-                    .onChange(of: document.content) { _ in
-                        // Start typing state
-                        isTyping = true
-                        
-                        // Reset the timer when user types
-                        typingTimer?.invalidate()
-                        
-                        // Create a new timer that will trigger after 2 seconds of inactivity
-                        typingTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { _ in
-                            // User stopped typing
-                            isTyping = false
-                            saveDocument()
-                        }
-                    }
+                })
+                .background(isDarkMode ? Color.black : Color.white)
             }
                 
             // Simple exit confirmation dialog
@@ -150,7 +144,7 @@ struct EditorView: View {
                         }
                     }
                     .padding(30)
-                    .background(isDarkMode ? Color.gray.opacity(0.8) : Color.white)
+                    .background(isDarkMode ? Color.black : Color.white)
                     .cornerRadius(12)
                     .shadow(radius: 10)
                 }
@@ -181,6 +175,10 @@ struct EditorView: View {
         // After a brief delay, switch the mode and hide animation
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             isDarkMode.toggle()
+            
+            // Save the dark mode preference
+            UserDefaults.standard.set(isDarkMode, forKey: "ScriboDarkModeEnabled")
+            
             withAnimation(.easeInOut(duration: 0.3)) {
                 showModeChangeAnimation = false
             }
@@ -222,55 +220,118 @@ struct EditorView: View {
                 return nil
             }
             
+            // Let standard keyboard shortcuts like Command+C, Command+V, Command+A pass through
+            // by not intercepting them here, so they're handled by the NSTextView responder chain
+            
             return event
         }
     }
 }
 
-// Create a UIViewRepresentable that gives direct access to the NSTextView
+// Completely custom NSViewRepresentable text editor with precise control over styling
 struct CustomTextEditor: NSViewRepresentable {
     @Binding var text: String
     var isDarkMode: Bool
+    var onTextChange: ((String) -> Void)?
     
     func makeNSView(context: Context) -> NSScrollView {
         let scrollView = NSTextView.scrollableTextView()
         let textView = scrollView.documentView as! NSTextView
         
-        textView.drawsBackground = true
-        textView.backgroundColor = isDarkMode ? .black : .white
-        textView.textColor = isDarkMode ? .white : .black
-        textView.font = NSFont.systemFont(ofSize: 14)
-        textView.isEditable = true
-        textView.isSelectable = true
+        configureTextView(textView)
         textView.delegate = context.coordinator
         
         return scrollView
     }
     
-    func updateNSView(_ nsView: NSScrollView, context: Context) {
-        let textView = nsView.documentView as! NSTextView
+    func updateNSView(_ scrollView: NSScrollView, context: Context) {
+        guard let textView = scrollView.documentView as? NSTextView else { return }
+        
+        // Only update the string if it's different to avoid cursor jumping
+        if textView.string != text {
+            textView.string = text
+        }
+        
+        // Always update appearance properties
+        configureTextView(textView)
+    }
+    
+    private func configureTextView(_ textView: NSTextView) {
+        // Basic configuration
+        textView.isEditable = true
+        textView.isSelectable = true
+        textView.font = NSFont.systemFont(ofSize: 14)
+        
+        // Critical: Ensure we use the exact same color as header
+        textView.drawsBackground = true
         textView.backgroundColor = isDarkMode ? .black : .white
         textView.textColor = isDarkMode ? .white : .black
         
-        if textView.string != text {
-            textView.string = text
+        // Disable system appearance adaptations that might override our colors
+        textView.usesAdaptiveColorMappingForDarkAppearance = false
+        
+        // Remove any system-provided background insets or styling
+        textView.textContainerInset = NSSize(width: 10, height: 10)
+        
+        // Explicitly disable any fancy text effects
+        textView.isAutomaticTextReplacementEnabled = false
+        textView.enclosingScrollView?.hasVerticalScroller = true
+        textView.enclosingScrollView?.hasHorizontalScroller = false
+        textView.isRichText = false
+        
+        // Make sure scroll indicators match theme
+        textView.enclosingScrollView?.scrollerStyle = .overlay
+        
+        // Ensure the scrollView also matches our color scheme
+        textView.enclosingScrollView?.backgroundColor = isDarkMode ? .black : .white
+        textView.enclosingScrollView?.drawsBackground = true
+        
+        // Ensure standard keyboard shortcuts work by making the text view the first responder
+        textView.window?.makeFirstResponder(textView)
+        
+        // Enable standard editing keyboard shortcuts
+        setupStandardShortcuts(for: textView)
+    }
+    
+    private func setupStandardShortcuts(for textView: NSTextView) {
+        // Ensure standard edit menu is properly connected
+        // This enables Command+X (cut), Command+C (copy), Command+V (paste), 
+        // Command+A (select all), Command+Z (undo), and Command+Shift+Z (redo)
+        textView.isAutomaticQuoteSubstitutionEnabled = false
+        textView.isAutomaticDashSubstitutionEnabled = false
+        textView.isAutomaticTextReplacementEnabled = false
+        textView.isAutomaticSpellingCorrectionEnabled = false
+        
+        // Explicitly enable common keyboard shortcut actions
+        textView.enabledTextCheckingTypes = 0
+        
+        // The undoManager property in NSTextView is get-only
+        // We can't assign to it, but we can ensure that it has an associated undo manager
+        // from the window or use the shared one
+        if textView.undoManager == nil {
+            // This is just a check - if nil, the text view will use the window's undo manager
+            // when it becomes part of a window hierarchy
+            NSLog("Warning: TextView has no undoManager. Will use default when available.")
         }
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(self)
+        Coordinator(text: $text, onTextChange: onTextChange)
     }
     
     class Coordinator: NSObject, NSTextViewDelegate {
-        var parent: CustomTextEditor
+        var text: Binding<String>
+        var onTextChange: ((String) -> Void)?
         
-        init(_ parent: CustomTextEditor) {
-            self.parent = parent
+        init(text: Binding<String>, onTextChange: ((String) -> Void)?) {
+            self.text = text
+            self.onTextChange = onTextChange
         }
         
         func textDidChange(_ notification: Notification) {
             guard let textView = notification.object as? NSTextView else { return }
-            parent.text = textView.string
+            text.wrappedValue = textView.string
+            onTextChange?(textView.string)
         }
     }
 }

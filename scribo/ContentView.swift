@@ -10,10 +10,7 @@ import SwiftUI
 // Main view
 struct ContentView: View {
     @State private var text = ""
-    @State private var showEscapeDialog = false
-    @State private var showPasswordPrompt = false
     @ObservedObject private var networkManager = NetworkManager()
-    @ObservedObject private var authManager = AuthenticationManager()
     
     var body: some View {
         ZStack {
@@ -26,49 +23,8 @@ struct ContentView: View {
                     networkManager.disableWifi()
                 }
                 .onDisappear {
-                    if authManager.isAuthenticated {
-                        networkManager.enableWifi()
-                    }
+                    networkManager.enableWifi()
                 }
-            
-            // Escape dialog
-            if showEscapeDialog {
-                VStack {
-                    Text("enter tri-passwords to exit Scribo")
-                        .font(.headline)
-                        .padding()
-                    
-                    Text("password \(authManager.passwordIndex + 1) of 3")
-                        .padding(.bottom)
-                    
-                    SecureField("enter password", text: $authManager.passwords[authManager.passwordIndex])
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.horizontal)
-                        .frame(width: 300)
-                    
-                    HStack {
-                        Button("cancel") {
-                            showEscapeDialog = false
-                        }
-                        .padding()
-                        
-                        Button("submit") {
-                            if authManager.checkPassword() {
-                                if authManager.isAuthenticated {
-                                    showEscapeDialog = false
-                                    networkManager.enableWifi()
-                                    NSApplication.shared.terminate(self)
-                                }
-                            }
-                        }
-                        .padding()
-                    }
-                }
-                .frame(width: 400, height: 250)
-                .background(Color.white)
-                .cornerRadius(12)
-                .shadow(radius: 10)
-            }
         }
         .background(Color.white)
         .edgesIgnoringSafeArea(.all)
@@ -77,9 +33,11 @@ struct ContentView: View {
     
     func setupKeyboardShortcuts() {
         NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
-            // Catch escape key and CMD+Q to prevent normal exit
+            // Catch escape key and CMD+Q to exit normally instead of through password system
             if event.keyCode == 53 || (event.modifierFlags.contains(.command) && event.keyCode == 12) {
-                showEscapeDialog = true
+                // Simply re-enable wifi and exit
+                networkManager.enableWifi()
+                NSApplication.shared.terminate(self)
                 return nil
             }
             return event
@@ -242,6 +200,13 @@ struct MainView: View {
                     documentManager.saveDocument(updatedDocument)
                     selectedDocument = nil
                     isEditingDocument = false
+                    
+                    // Exit fullscreen mode when returning to document list
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        if let window = NSApplication.shared.windows.first, window.styleMask.contains(.fullScreen) {
+                            window.toggleFullScreen(nil)
+                        }
+                    }
                 }
             } else {
                 DocumentListView(
@@ -254,6 +219,14 @@ struct MainView: View {
                         isEditingDocument = true
                     }
                 )
+                .onAppear {
+                    // Ensure we're not in fullscreen when returning to document list
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                        if let window = NSApplication.shared.windows.first, window.styleMask.contains(.fullScreen) {
+                            window.toggleFullScreen(nil)
+                        }
+                    }
+                }
             }
         }
     }

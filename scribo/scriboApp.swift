@@ -31,36 +31,6 @@ class NetworkManager: ObservableObject {
     }
 }
 
-// Password authentication for exiting
-class AuthenticationManager: ObservableObject {
-    @Published var isAuthenticated = false
-    @Published var passwords = ["", "", ""]
-    @Published var passwordIndex = 0
-    
-    // These would be securely stored and hashed in a real app
-    let correctPasswords = ["focus", "create", "freedom"]
-    
-    func checkPassword() -> Bool {
-        if passwords[passwordIndex] == correctPasswords[passwordIndex] {
-            passwordIndex += 1
-            if passwordIndex >= 3 {
-                isAuthenticated = true
-                return true
-            }
-            return false
-        } else {
-            passwords[passwordIndex] = ""
-            return false
-        }
-    }
-    
-    func reset() {
-        passwordIndex = 0
-        passwords = ["", "", ""]
-        isAuthenticated = false
-    }
-}
-
 // Main application
 @main
 struct scriboApp: App {
