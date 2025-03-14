@@ -4,7 +4,7 @@ a simple macOS app to help you write more. and get distracted less.
 
 ## what is it?
 
-sribo is a minimalist writing tool designed to enhance focus and productivity.
+scribo is a minimalist writing tool designed to enhance focus and productivity.
 
 ## how to use
 
