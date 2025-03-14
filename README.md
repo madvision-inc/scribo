@@ -1,4 +1,4 @@
-# sribo
+# scribo
 
 a simple macOS app to help you write more. and get distracted less.
 
